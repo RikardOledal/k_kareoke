@@ -11,7 +11,7 @@ st.set_page_config(page_title="K Karaoke Låtlista", page_icon="🎤", layout="w
 @st.cache_data
 def load_data():
     DATAPATH = Path('data')
-    FILE_PATH = DATAPATH / 'Kareoke_Kategoriserad_Uppdaterad_v2.xlsx'
+    FILE_PATH = DATAPATH / 'Kareoke_Final.xlsx'
     
     if not FILE_PATH.exists():
         st.error(f"Kunde inte hitta filen: {FILE_PATH}")

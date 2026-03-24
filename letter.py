@@ -12,10 +12,11 @@ FINAL_OUTPUT = DATAPATH / 'Kareoke_Final.xlsx'
 def main():
     print("Läser in originalfilen (med de snygga bokstäverna)...")
     try:
-        df_orig = pd.read_csv(ORIGINAL_FILE, sep=',', dtype={'ID': str}, encoding='utf-8', on_bad_lines='skip')
+        # Ändrat sep till ';'
+        df_orig = pd.read_csv(ORIGINAL_FILE, sep=';', dtype={'ID': str}, encoding='utf-8', on_bad_lines='skip')
     except UnicodeDecodeError:
-        # Det är hit den hoppar och då måste vi ha on_bad_lines här också!
-        df_orig = pd.read_csv(ORIGINAL_FILE, sep=',', dtype={'ID': str}, encoding='latin1', on_bad_lines='skip')
+        # Ändrat sep till ';' här också
+        df_orig = pd.read_csv(ORIGINAL_FILE, sep=';', dtype={'ID': str}, encoding='latin1', on_bad_lines='skip')
 
     # Rensa kolumnnamn
     df_orig.columns = df_orig.columns.str.strip()
